@@ -8,7 +8,8 @@ app = Flask(__name__)
 # return default response for root folder
 @app.route('/')
 def root():
-    return '<h1>Heart Model Prediction</h1>'
+    python_version = "\npython-version%s\n" % sys.version
+    return python_version 
 
 # accept GET or POST methods
 @app.route('/heart', methods=['get', 'post'])
@@ -32,4 +33,4 @@ def heart_predict():
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 9099))
-    app.run(host='127.0.0.1', port=port, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)
